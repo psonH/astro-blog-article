@@ -1,0 +1,15 @@
+---
+const { href } = Astro.props;
+// import '../styles/global.css'
+---
+
+<a href={href} class="bg-red-400">
+    <slot />
+</a>
+
+<style>
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
