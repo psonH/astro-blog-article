@@ -1,6 +1,6 @@
 ---
 title: "Elevate Your Mobile Experience with Samsung"
-pubDate: 2024-01-13
+pubDate: 2026-07-11
 author: "Jane Smith"
 image: "image4.png"
 tags: ["samsung", "smartphones", "gadgets"]
