@@ -8,29 +8,40 @@ interface Props {
 }
 ---
 
-<div class="relative inline-block w-full sm:w-auto cursor-pointer rounded-2xl">
+<div
+  class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(15,23,42,0.4)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30"
+>
   <a href={`/articles/${article.data.slug}`}>
     <img
       src={`/images/${article.data.image}`}
       alt="Article Image"
-      class="w-full h-auto rounded-2xl"
+      class="h-full min-h-[22rem] w-full object-cover transition duration-500 group-hover:scale-105"
     />
 
     <div
-      class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-80 hover:opacity-75 transition duration-300 ease-in-out text-white text-center rounded-2xl"
+      class="absolute inset-0 flex flex-col justify-end bg-[linear-gradient(180deg,rgba(2,6,23,0.1)_0%,rgba(2,6,23,0.5)_35%,rgba(2,6,23,0.92)_100%)] p-6 text-center text-white transition duration-300 sm:p-8"
     >
-      <div>
-        <h2 class="text-2xl font-semibold sm:text-3xl">
+      <div
+        class="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-sm sm:p-6"
+      >
+        <p
+          class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/90"
+        >
+          Featured article
+        </p>
+        <h2
+          class="text-2xl font-semibold leading-tight sm:text-3xl lg:text-4xl"
+        >
           {article.data.title}
         </h2>
-        <p class="text-xl mt-4">{formatDate(article.data.pubDate)}</p>
-        {console.log("MostRecentArticle article date:", formatDate(article.data.pubDate))}
+        <p class="mt-4 text-sm text-slate-200 sm:text-base">
+          {formatDate(article.data.pubDate)}
+        </p>
 
-        <!-- Tags with rounded border -->
-        <div class="flex mt-4 justify-center">
+        <div class="mt-5 flex flex-wrap justify-center gap-2">
           {
             article.data.tags.map((tag) => (
-              <span class="px-2 py-1 border text-white rounded-full text-xs mr-2">
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white/90">
                 {tag.toLocaleUpperCase()}
               </span>
             ))

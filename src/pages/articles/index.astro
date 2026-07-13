@@ -3,6 +3,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import ArticleCard from "../../components/ArticleCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import { ARTICLES_PER_PAGE } from "../../constants";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
@@ -10,29 +12,57 @@ const allBlogArticles: CollectionEntry<"blog">[] = (
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
+const totalPages: number = Math.ceil(
+  allBlogArticles.length / ARTICLES_PER_PAGE,
+);
+
+const articlesForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
+  (currentPage - 1) * ARTICLES_PER_PAGE,
+  currentPage * ARTICLES_PER_PAGE,
+);
 ---
 
 <MainLayout title="All Articles">
-  <h1 class="text-2xl pb-3">All Articles</h1>
-  <!-- Main Grid -->
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- Article Cards -->
-    {allBlogArticles.map((article) => <ArticleCard article={article} />)}
-  </div>
+  <div class="space-y-8">
+    <section
+      class="rounded-4xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.25)] backdrop-blur-xl sm:p-8"
+    >
+      <div
+        class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+      >
+        <div class="max-w-2xl space-y-4">
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200/80"
+          >
+            Library
+          </p>
+          <h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            All Articles
+          </h1>
+          <p class="text-base leading-7 text-slate-300 sm:text-lg">
+            Browse the full collection of stories, tutorials, and reviews from
+            the Priyank's Lib archive.
+          </p>
+        </div>
+        <div
+          class="rounded-3xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-4 text-sm text-cyan-100"
+        >
+          {allBlogArticles.length} articles available
+        </div>
+      </div>
+    </section>
 
-  <!-- Pagination -->
-  <div class="flex justify-between mt-10">
-    <a
-      href="#"
-      class="inline-block bg-indigo-100 px-3 py-2 hover:bg-indigo-600 hover:text-white rounded-lg"
-    >
-      Previous
-    </a>
-    <a
-      href="#"
-      class="inline-block bg-indigo-100 px-3 py-2 hover:bg-indigo-600 hover:text-white rounded-lg"
-    >
-      Next
-    </a>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      {articlesForPage.map((article) => <ArticleCard article={article} />)}
+    </div>
+
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      disablePrev={currentPage === 1}
+      disableNext={currentPage === totalPages}
+    />
   </div>
 </MainLayout>

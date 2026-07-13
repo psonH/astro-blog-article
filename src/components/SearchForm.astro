@@ -1,21 +1,25 @@
-<form id="search-form" class="flex items-center" action="/articles/search">
-  <label for="search-input" class="sr-only">Search</label>
-  <div class="relative w-full">
+<form
+  id="search-form"
+  class="flex w-full flex-col gap-3 rounded-3xl border border-white/10 bg-slate-900/70 p-3 shadow-[0_18px_50px_rgba(15,23,42,0.28)] backdrop-blur-xl sm:flex-row sm:items-center"
+  action="/articles/search"
+>
+  <label for="query" class="sr-only">Search</label>
+  <div class="relative w-full flex-1">
     <input
       type="text"
       id="query"
       name="query"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+      class="block w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
       placeholder="Search articles..."
       required
     />
   </div>
   <button
     type="submit"
-    class="p-2.5 ms-2 text-sm font-medium text-white bg-indigo-700 rounded-lg border border-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300"
+    class="inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-400/30 bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
   >
     <svg
-      class="w-4 h-4"
+      class="h-4 w-4"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

@@ -9,46 +9,131 @@ const tags: string[] = allBlogArticles.flatMap(
 const uniqueTags: string[] = [...new Set(tags)];
 ---
 
-<footer class="bg-indigo-900 text-white">
-  <div class="container mx-auto mt-10 max-w-7xl px-8">
-    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold mb-4">About</h3>
-        <p class="text-white text-sm">
-          TechPeople is a blog for tech enthusiasts. We publish articles,
-          stories and tutorials about the latest technology trends and
+<footer
+  class="mt-16 border-t border-white/10 bg-slate-950/80 text-white backdrop-blur-xl"
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <div
+      class="mb-10 rounded-4xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.3)] backdrop-blur-xl sm:p-8"
+    >
+      <div
+        class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+      >
+        <div class="max-w-2xl space-y-3">
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200/80"
+          >
+            Priyank's Lib
+          </p>
+          <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
+            Practical stories for people building with technology.
+          </h2>
+          <p class="max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+            Articles, reviews, and tutorials that help readers keep up with the
+            fast-moving tech landscape.
+          </p>
+        </div>
+        <a
+          href="/articles"
+          class="inline-flex items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/40 hover:bg-cyan-400/20 hover:text-white"
+        >
+          Browse Articles
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="space-y-4">
+        <h3
+          class="text-base font-semibold uppercase tracking-[0.2em] text-slate-200"
+        >
+          About
+        </h3>
+        <p class="text-sm leading-7 text-slate-300">
+          Priyank's Lib is a blog for tech enthusiasts. We publish articles,
+          stories, and tutorials about the latest technology trends and
           advancements.
         </p>
       </div>
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold mb-4">Categories</h3>
-        <ul class="text-white text-sm">
+      <div class="space-y-4">
+        <h3
+          class="text-base font-semibold uppercase tracking-[0.2em] text-slate-200"
+        >
+          Categories
+        </h3>
+        <ul class="flex flex-col gap-3 text-sm text-slate-300">
           {
             uniqueTags.map((tag) => (
-              <li class="mb-2">
-                <a href={`/articles/tag/${tag}`}>#{tag}</a>
+              <li>
+                <a
+                  href={`/articles/tag/${tag}`}
+                  class="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 transition hover:border-cyan-300/30 hover:bg-white/10 hover:text-cyan-100"
+                >
+                  #{tag}
+                </a>
               </li>
             ))
           }
         </ul>
       </div>
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold mb-4">Contact</h3>
-        <ul class="text-white text-sm">
-          <li class="mb-2">
-            <a href="#">Email</a>
+      <div class="space-y-4">
+        <h3
+          class="text-base font-semibold uppercase tracking-[0.2em] text-slate-200"
+        >
+          Contact
+        </h3>
+        <ul class="flex flex-col gap-3 text-sm text-slate-300">
+          <li>
+            <a class="transition hover:text-cyan-100" href="#">Email</a>
           </li>
-          <li class="mb-2">
-            <a href="#">Twitter</a>
+          <li>
+            <a class="transition hover:text-cyan-100" href="#">Twitter</a>
           </li>
-          <li class="mb-2">
-            <a href="#">Facebook</a>
+          <li>
+            <a class="transition hover:text-cyan-100" href="#">Facebook</a>
           </li>
-          <li class="mb-2">
-            <a href="#">Instagram</a>
+          <li>
+            <a class="transition hover:text-cyan-100" href="#">Instagram</a>
           </li>
         </ul>
       </div>
+      <div class="space-y-4">
+        <h3
+          class="text-base font-semibold uppercase tracking-[0.2em] text-slate-200"
+        >
+          Explore
+        </h3>
+        <p class="text-sm leading-7 text-slate-300">
+          Find the latest stories, search the archive, or jump into a topic you
+          care about.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <a
+            href="/"
+            class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:bg-white/10 hover:text-white"
+          >
+            Home
+          </a>
+          <a
+            href="/articles"
+            class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:bg-white/10 hover:text-white"
+          >
+            Articles
+          </a>
+          <a
+            href="/about"
+            class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200 transition hover:border-cyan-300/30 hover:bg-white/10 hover:text-white"
+          >
+            About
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© 2026 Priyank's Lib. Built for curious readers.</p>
+      <p>Designing the future, one article at a time.</p>
     </div>
   </div>
 </footer>

@@ -3,32 +3,36 @@ import { Image } from "astro:assets";
 import logo from "../images/logo.png";
 ---
 
-<nav class="bg-gray-900 text-white">
+<nav
+  class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 text-white backdrop-blur-xl"
+>
   <div
-    class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4"
+    class="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
   >
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="/" class="flex items-center gap-3">
       <Image
         src={logo}
-        class="h-14"
-        alt="TechPeople Logo"
+        class="h-12 w-12 rounded-2xl border border-white/10 bg-white/5 p-1 shadow-lg shadow-cyan-500/10"
+        alt="Priyank's Lib Logo"
         width={55}
         height={55}
       />
-      <span class="self-center text-2xl font-semibold whitespace-nowrap"
-        ><span class="text-indigo-400">Tech</span>People</span
+      <span
+        class="whitespace-nowrap text-xl font-semibold tracking-tight sm:text-2xl"
       >
+        <span class="text-cyan-300">Priyank's</span> Lib
+      </span>
     </a>
     <button
       data-collapse-toggle="navbar-default"
       type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-300/30 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-300/30 md:hidden"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
       <span class="sr-only">Open main menu</span>
       <svg
-        class="w-5 h-5"
+        class="h-5 w-5"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -44,26 +48,26 @@ import logo from "../images/logo.png";
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 border text-white rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 border-gray-700"
+        class="mt-4 flex flex-col gap-2 rounded-3xl border border-white/10 bg-slate-900/80 p-3 text-white shadow-[0_20px_60px_rgba(15,23,42,0.35)] backdrop-blur-xl md:mt-0 md:flex-row md:items-center md:gap-2 md:border-0 md:bg-transparent md:p-0 md:shadow-none"
       >
         <li>
           <a
             href="/"
-            class="block py-2 px-3 text-white rounded md:p-0 hover:text-indigo-400"
+            class="block rounded-2xl px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/5 hover:text-cyan-200 md:text-base"
             aria-current="page">Home</a
           >
         </li>
         <li>
           <a
             href="/articles"
-            class="block py-2 px-3 text-white rounded md:p-0 hover:text-indigo-400"
+            class="block rounded-2xl px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/5 hover:text-cyan-200 md:text-base"
             >All Articles</a
           >
         </li>
         <li>
           <a
             href="/about"
-            class="block py-2 px-3 text-white rounded md:p-0 hover:text-indigo-400"
+            class="block rounded-2xl px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/5 hover:text-cyan-200 md:text-base"
             >About</a
           >
         </li>
